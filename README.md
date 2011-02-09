@@ -38,7 +38,7 @@ In celebration of [whyday](http://whyday.org/), here's a revisiting of Markaby's
         footer ->
           p 'Bye!'
 
-Live demo at [coffeekup.org](http://arden.github.com/cayennetree).
+Live demo at [cayennetree](http://arden.github.com/cayennetree).
 
 ## _Why?
 
@@ -70,11 +70,11 @@ Live demo at [coffeekup.org](http://arden.github.com/cayennetree).
 
 Just grab [node.js](http://nodejs.org/#download) and [npm](http://github.com/isaacs/npm) and you're set:
 
-    npm install coffeekup
+    npm install cayennetree
 
 ## Using
 
-    coffeekup = require 'coffeekup'
+    cayennetree = require 'cayennetree'
 
     puts coffeekup.render -> h1 "You can feed me templates as functions."
     puts coffeekup.render "h1 'Or strings. I am not too picky.'"
@@ -153,7 +153,7 @@ Command-line:
       -f, --format       Applies line breaks to html output
       -u, --utils        Adds helper locals (currently only "render")
       -h, --help         Prints this help message
-      -v, --version      Shows CoffeeKup version
+      -v, --version      Shows CayenneTree version
 
 See [/examples](http://github.com/mauricemach/coffeekup/tree/master/examples) for complete versions. Please note that even though all examples are given in coffeescript, you can also use their plain javascript counterparts just fine.
 
