@@ -1,5 +1,5 @@
 meryl = require 'meryl'
-coffeekup = require 'coffeekup'
+cayennetree = require 'cayennetree'
 
 meryl.h 'GET /', (req, resp) ->
   people = ['bob', 'alice', 'meryl']
@@ -8,6 +8,6 @@ meryl.h 'GET /', (req, resp) ->
 meryl.run
   templateDir: 'templates'
   templateExt: '.coffee'
-  templateFunc: coffeekup.adapters.meryl
+  templateFunc: cayennetree.adapters.meryl
 
 puts 'Listening on 3000...'

@@ -1,6 +1,6 @@
 #!/usr/bin/env coffee
 
-coffeekup = require 'coffeekup'
+cayennetree = require 'cayennetree'
 fs = require 'fs'
 path = require 'path'
 puts = console.log
@@ -16,7 +16,7 @@ else
 render = (input_path) ->
   fs.readFile input_path, (err, contents) ->
     throw err if err
-    html = coffeekup.render String(contents), options
+    html = cayennetree.render String(contents), options
     write input_path, html
 
 write = (input_path, html) ->
@@ -30,7 +30,7 @@ write = (input_path, html) ->
 
 usage = '''
   Usage:
-    coffeekup [OPTIONS] path/to/template.coffee
+    cayennetree [OPTIONS] path/to/template.coffee
 '''
 
 switches = [
@@ -39,7 +39,7 @@ switches = [
   ['-f', '--format', 'Applies line breaks to html output']
   ['-u', '--utils', 'Adds helper locals (currently only "render")']
   ['-h', '--help', 'Prints this help message']
-  ['-v', '--version', 'Shows CoffeeKup version']
+  ['-v', '--version', 'Shows CayenneTree version']
 ]
 
 parser = new OptionParser switches, usage
@@ -48,12 +48,12 @@ args = options.arguments
 delete options.arguments
 
 puts parser.help() if options.help or argv.length is 0
-puts coffeekup.version if options.version
+puts cayennetree.version if options.version
 if options.utils
   options.locals ?= {}
   options.locals.render = (file) ->
     contents = fs.readFileSync file
-    coffeekup.render String(contents), options
+    cayennetree.render String(contents), options
 
 if args.length > 0
   file = args[0]

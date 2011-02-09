@@ -1,4 +1,4 @@
-# CoffeeKup
+# CayenneTree
 Markup as CoffeeScript
 
 In celebration of [whyday](http://whyday.org/), here's a revisiting of Markaby's concept, this time with the fine flavour of fresh [CoffeeScript](http://coffeescript.org):
@@ -38,7 +38,7 @@ In celebration of [whyday](http://whyday.org/), here's a revisiting of Markaby's
         footer ->
           p 'Bye!'
 
-Live demo at [coffeekup.org](http://coffeekup.org).
+Live demo at [coffeekup.org](http://arden.github.com/cayennetree).
 
 ## _Why?
 

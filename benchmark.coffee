@@ -1,4 +1,4 @@
-coffeekup = require 'coffeekup'
+cayennetree = require 'cayennetree'
 jade = require 'jade'
 ejs = require 'ejs'
 eco = require 'eco'
@@ -14,7 +14,7 @@ data =
     {email: 'wilson@gmail.com', name: 'wilson'}
   ]
 
-coffeekup_template = ->
+cayennetree_template = ->
   doctype 5
   html lang: 'en', ->
     head ->
@@ -37,7 +37,7 @@ coffeekup_template = ->
             li user.name
             li -> a href: "mailto:#{user.email}", -> user.email
 
-coffeekup_string_template = """
+cayennetree_string_template = """
   doctype 5
   html lang: 'en', ->
     head ->
@@ -61,7 +61,7 @@ coffeekup_string_template = """
             li -> a href: "mailto:\#{user.email}", -> user.email
 """
 
-coffeekup_compiled_template = coffeekup.compile coffeekup_template
+cayennetree_compiled_template = cayennetree.compile cayennetree_template
 
 jade_template = '''
   !!! 5
@@ -184,11 +184,11 @@ benchmark = (title, code) ->
   puts "#{title}: #{new Date - start} ms"
 
 exports.run = ->
-  benchmark 'CoffeeKup (precompiled)', -> coffeekup_compiled_template context: data
-  benchmark 'CoffeeKup (code)', -> coffeekup.render coffeekup_template, context: data
-  benchmark 'CoffeeKup (code, cache off)', -> coffeekup.render coffeekup_template, context: data, cache: off
-  benchmark 'CoffeeKup (string)', -> coffeekup.render coffeekup_string_template, context: data
-  benchmark 'CoffeeKup (string, cache off)', -> coffeekup.render coffeekup_string_template, context: data, cache: off
+  benchmark 'CayenneTree (precompiled)', -> cayennetree_compiled_template context: data
+  benchmark 'CayenneTree (code)', -> cayennetree.render cayennetree_template, context: data
+  benchmark 'CayenneTree (code, cache off)', -> cayennetree.render cayennetree_template, context: data, cache: off
+  benchmark 'CayenneTree (string)', -> cayennetree.render cayennetree_string_template, context: data
+  benchmark 'CayenneTree (string, cache off)', -> cayennetree.render cayennetree_string_template, context: data, cache: off
   benchmark 'Jade (cache off)', -> jade.render jade_template, locals: data
   benchmark 'Jade (cache on)', -> jade.render jade_template, locals: data, cache: on, filename: 'test'
   benchmark 'ejs (cache off)', -> ejs.render ejs_template, locals: data

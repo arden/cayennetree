@@ -1,11 +1,11 @@
 if window?
-  coffeekup = window.CoffeeKup = {}
+  cayennetree = window.CayenneTree = {}
   coffee = if CoffeeScript? then CoffeeScript else null
 else
-  coffeekup = exports
+  cayennetree = exports
   coffee = require 'coffee-script'
 
-coffeekup.version = '0.2.2'
+cayennetree.version = '0.2.2'
 
 skeleton = (ck_options) ->
   ck_options ?= {}
@@ -121,7 +121,7 @@ skeleton = support + skeleton
 
 tags = 'a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdo|big|blockquote|body|br|button|canvas|caption|center|cite|code|col|colgroup|command|datalist|dd|del|details|dfn|dir|div|dl|dt|em|embed|fieldset|figcaption|figure|font|footer|form|frame|frameset|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|keygen|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|u|ul|video|xmp'.split '|'
 
-coffeekup.compile = (template, options) ->
+cayennetree.compile = (template, options) ->
   options ?= {}
   options.locals ?= {}
   
@@ -152,7 +152,7 @@ coffeekup.compile = (template, options) ->
 
 cache = {}
 
-coffeekup.render = (template, options) ->
+cayennetree.render = (template, options) ->
   options ?= {}
   options.context ?= {}
   options.locals ?= {}
@@ -164,11 +164,11 @@ coffeekup.render = (template, options) ->
     delete options.locals.body
 
   if options.cache and cache[template]? then tpl = cache[template]
-  else if options.cache then tpl = cache[template] = coffeekup.compile(template, options)
-  else tpl = coffeekup.compile(template, options)
+  else if options.cache then tpl = cache[template] = cayennetree.compile(template, options)
+  else tpl = cayennetree.compile(template, options)
   tpl(options)
 
 unless window?
-  coffeekup.adapters =
-    simple: (template, data) -> coffeekup.render template, context: data
-  coffeekup.adapters.meryl = coffeekup.adapters.simple
+  cayennetree.adapters =
+    simple: (template, data) -> cayennetree.render template, context: data
+  cayennetree.adapters.meryl = cayennetree.adapters.simple

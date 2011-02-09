@@ -101,7 +101,7 @@ exports.run = ->
 
 puts = console.log
 print = require('sys').print
-ck = require 'coffeekup'
+ck = require 'cayennetree'
 render = ck.render
 
 [tests, passed, failed, errors] = [[], [], [], []]
